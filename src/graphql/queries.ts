@@ -7,6 +7,10 @@ export const getPost = /* GraphQL */ `
     getPost(id: $id) {
       id
       title
+      contents
+      image
+      upvotes
+      downvotes
       comments {
         items {
           id
@@ -41,6 +45,10 @@ export const listPosts = /* GraphQL */ `
       items {
         id
         title
+        contents
+        image
+        upvotes
+        downvotes
         comments {
           nextToken
           startedAt
@@ -73,6 +81,10 @@ export const syncPosts = /* GraphQL */ `
       items {
         id
         title
+        contents
+        image
+        upvotes
+        downvotes
         comments {
           nextToken
           startedAt
@@ -97,6 +109,10 @@ export const getComment = /* GraphQL */ `
       post {
         id
         title
+        contents
+        image
+        upvotes
+        downvotes
         comments {
           nextToken
           startedAt
@@ -131,6 +147,10 @@ export const listComments = /* GraphQL */ `
         post {
           id
           title
+          contents
+          image
+          upvotes
+          downvotes
           createdAt
           updatedAt
           _version
@@ -170,6 +190,10 @@ export const syncComments = /* GraphQL */ `
         post {
           id
           title
+          contents
+          image
+          upvotes
+          downvotes
           createdAt
           updatedAt
           _version
