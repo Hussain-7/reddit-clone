@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Typography } from "@material-ui/core";
+import { Container, Typography } from "@material-ui/core";
 import { useUser } from "../context/AuthContext";
 import { listPosts } from "../graphql/queries";
 import { API } from "aws-amplify";
 import { Post, ListPostsQuery } from "../API";
+import PostPreview from "../components/PostPreview";
+
 export default function Home() {
   // Make a request to graphQl api
   const { user } = useUser();
@@ -26,7 +28,13 @@ export default function Home() {
 
   console.log("Signed in user:", user);
   console.log("Post:", posts);
-  return <Typography variant="h1">Hello World</Typography>;
+  return (
+    <Container maxWidth="md">
+      {posts.map((post) => (
+        <PostPreview key={post.id} post={post} />
+      ))}
+    </Container>
+  );
 }
 
 // Get all the posts on the server-side
