@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Typography } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 import { useUser } from "../context/AuthContext";
 import { listPosts } from "../graphql/queries";
 import { API } from "aws-amplify";
