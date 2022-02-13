@@ -18,7 +18,7 @@ export default function Home() {
         error: any[];
       };
       if (allPosts.data) {
-        setPosts(allPosts.data.listPosts.items);
+        setPosts(allPosts.data.listPosts.items as Post[]);
       } else {
         throw new Error("Could not get Posts");
       }

@@ -4,6 +4,8 @@ import { GetPostQuery, ListPostsQuery, Post } from "../../API";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { withSSRContext } from "aws-amplify";
 import { getPost, listPosts } from "../../graphql/queries";
+import PostPreview from "../../components/PostPreview";
+import { Container } from "@material-ui/core";
 type Props = {
   post: Post;
 };
@@ -11,8 +13,12 @@ type Props = {
 function IndividualPosts({ post }: Props) {
   const router = useRouter();
   const { id } = router.query;
-
-  return <div>Post:{id}</div>;
+  console.log(id);
+  return (
+    <Container maxWidth="md">
+      <PostPreview post={post} />
+    </Container>
+  );
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
